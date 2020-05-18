@@ -6,7 +6,7 @@ var melody = [];
 for (let i=0; i<loopLength; i++) {
 	melody[i] = [];
 	for (let j=0; j<piano.length; j++) {
-		melody[i][j] = Math.floor(1.3*Math.random());
+		melody[i][j] = 0;
 	}
 }
 //define canvas
