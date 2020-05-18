@@ -36,12 +36,12 @@ function drawPiano() {
 function drawGrid() {
 	//draw color sections
 	for (let i=0; i<4; i++) {
-		ctx.fillStyle = i%2 ? "#385570" : "#4d7ca8";
+		ctx.fillStyle = i%2 ? "#486d82" : "#6498b5";
 		ctx.fillRect(scalar + i*(c.width-scalar)/4, 0, (c.width-scalar)/4, c.height);
 	}
 	//draw vertical grid
 	for (let i=0; i<loopLength; i++) {
-		ctx.lineWidth = i%4 ? 1 : 2;
+		ctx.lineWidth = i%4 ? .5 : 1.5;
 		ctx.strokeStyle = i%4 ? "#253340" : "#253340";
 		ctx.beginPath();
 		ctx.moveTo(scalar + i*(c.width-scalar)/loopLength, 0);
