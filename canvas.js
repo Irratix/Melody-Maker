@@ -16,11 +16,11 @@ function clear() {
 function drawPiano() {
 	for (let i=0; i<piano.length; i++) {
 		//draw the key
-		ctx.fillStyle = piano[i] ? "white" : "black";
+		ctx.fillStyle = piano[i] ? "#FFF" : "#222";
 		ctx.fillRect(0, c.height - scalar*i, scalar, -scalar);
 		//if black key, take the color through the grid
 		if (!piano[i]) {
-			ctx.globalAlpha = 0.2;
+			ctx.globalAlpha = 0.3;
 			ctx.fillRect(scalar, c.height - scalar*i, c.width, -scalar);
 			ctx.globalAlpha = 1;
 		}
@@ -66,5 +66,10 @@ function drawNotes() {
 				ctx.fillRect(scalar + i*(c.width-scalar)/loopLength + 1, c.height - scalar*j - 1, scalar*horizontalStretch - 2, -scalar + 2);
 			}
 		}
+	}
+	
+	if (mousedown) {
+		ctx.fillStyle = "#6bffb3";
+		ctx.fillRect(scalar + gridX*(c.width-scalar)/loopLength + 1, c.height - scalar*gridY - 1, scalar*horizontalStretch - 2, -scalar + 2);
 	}
 }

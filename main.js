@@ -20,6 +20,9 @@ c.height = scalar * piano.length;
 var input;
 var input = document.createElement('input');
 input.type = 'file';
+var mousedown = false;
+var gridX, gridY;
+var erasing = false;
 
 //start program loop
 main();
