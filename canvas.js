@@ -16,7 +16,7 @@ function clear() {
 function drawPiano() {
 	for (let i=0; i<piano.length; i++) {
 		//draw the key
-		ctx.fillStyle = piano[i] ? "#FFF" : "#222";
+		ctx.fillStyle = piano[i] ? "#FFF" : "#000";
 		ctx.fillRect(0, c.height - scalar*i, scalar, -scalar);
 		//if black key, take the color through the grid
 		if (!piano[i]) {
