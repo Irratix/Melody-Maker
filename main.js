@@ -16,6 +16,10 @@ var scalar = 20;
 var horizontalStretch = 1.3;
 c.width = scalar * loopLength * horizontalStretch;
 c.height = scalar * piano.length;
+//more init
+var input;
+var input = document.createElement('input');
+input.type = 'file';
 
 //start program loop
 main();
@@ -43,4 +47,18 @@ function download(data, filename, type) {
             window.URL.revokeObjectURL(url);  
         }, 0); 
     }
+}
+
+//load a melody
+function loadMelody() {
+	input.click();
+}
+
+input.onchange = e => { 
+	var file = e.target.files[0]; 
+	var reader = new FileReader();
+	reader.readAsText(file,'UTF-8');
+	reader.onload = readerEvent => {
+		melody = JSON.parse(readerEvent.target.result); // this is the content!
+	}
 }
