@@ -38,6 +38,11 @@ function main() {
 		}
 	}
 	
+	if (time > (loopLength-1)*8) {
+		playing = false;
+		time = 0;
+	}
+	
 	drawCanvas();
 }
 

@@ -78,7 +78,7 @@ function drawNotes() {
 function drawPlayline() {
 	if (!playing) return;
 	
-	let posX = scalar + time*(scalar/8);
+	let posX = scalar + time*(((c.width-scalar)/loopLength)/8);
 	
 	ctx.strokeStyle = "white";
 	ctx.lineWidth = 2;
