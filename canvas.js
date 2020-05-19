@@ -4,6 +4,7 @@ function drawCanvas() {
 	drawGrid();
 	drawPiano();
 	drawNotes();
+	drawPlayline();
 }
 
 //clears the canvas
@@ -72,6 +73,20 @@ function drawNotes() {
 		ctx.fillStyle = "#6bffb3";
 		ctx.fillRect(scalar + gridX*(c.width-scalar)/loopLength + 1, c.height - scalar*gridY - 1, horizontalStretch - 2, -scalar + 2);
 	}
+}
+
+function drawPlayline() {
+	if (!playing) return;
+	
+	let posX = scalar + time*(scalar/8);
+	
+	ctx.strokeStyle = "white";
+	ctx.lineWidth = 2;
+	
+	ctx.beginPath();
+	ctx.moveTo(posX,0);
+	ctx.lineTo(posX,c.height);
+	ctx.stroke();
 }
 
 function fitCanvas() {

@@ -18,14 +18,19 @@ input.type = 'file';
 var mousedown = false;
 var gridX, gridY;
 var erasing = false;
+var time = 0;
+var playing = false;
 
 //start program loop
-main();
+setInterval(function() {
+	main();
+}, 20);
 
 //main loop
 function main() {
+	if (playing) time++;
+	
 	drawCanvas();
-	window.requestAnimationFrame(main);
 }
 
 // Function to download data to a file, copied from https://stackoverflow.com/questions/13405129/javascript-create-and-save-file
@@ -59,6 +64,16 @@ function resetMelody() {
 			melody[i][j] = 0;
 		}
 	}
+}
+
+function play() {
+	playing = true;
+	time = 0;
+}
+
+function stop() {
+	playing = false;
+	time = 0;
 }
 
 input.onchange = e => { 
