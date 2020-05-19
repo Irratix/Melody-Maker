@@ -36,6 +36,7 @@ button:active {
 
 .saveButton {
 	background-color: #64e3ae;
+	margin-left: 50px;
 }
 
 .saveButton:hover {
