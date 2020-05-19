@@ -28,6 +28,27 @@ button {
 	cursor: pointer;
 }
 
+button:active {
+	position: relative;
+	top: 2px;
+}
+
+.saveButton {
+	background-color: #64e3ae;
+}
+
+.saveButton:hover {
+	background-color: #50ba8e;
+}
+
+.loadButton {
+	background-color: #69a5e0;
+}
+
+.loadButton:hover {
+	background-color: #5688ba;
+}
+
 .unselectable {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
