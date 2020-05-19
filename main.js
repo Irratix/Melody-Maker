@@ -12,9 +12,9 @@ for (let i=0; i<loopLength; i++) {
 //define canvas
 var c = document.getElementById("c");
 var ctx = c.getContext("2d");
-var scalar = 20;
-var horizontalStretch = 1.3;
-c.width = scalar * loopLength * horizontalStretch;
+var scalar;
+var horizontalStretch;
+fitCanvas();
 c.height = scalar * piano.length;
 //more init
 var input;

@@ -58,6 +58,10 @@ window.addEventListener("contextmenu", function (e) {
 	e.preventDefault();
 }, false);
 
+window.onresize = function() {
+	fitCanvas();
+}
+
 //buttons
 function saveMelody() {
 	let melodyJSON = JSON.stringify(melody);

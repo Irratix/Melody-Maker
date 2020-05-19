@@ -63,13 +63,21 @@ function drawNotes() {
 	for (let i=0; i<loopLength; i++) {
 		for (let j=0; j<piano.length; j++) {
 			if (melody[i][j]) {
-				ctx.fillRect(scalar + i*(c.width-scalar)/loopLength + 1, c.height - scalar*j - 1, scalar*horizontalStretch - 2, -scalar + 2);
+				ctx.fillRect(scalar + i*(c.width-scalar)/loopLength + 1, c.height - scalar*j - 1, horizontalStretch - 2, -scalar + 2);
 			}
 		}
 	}
 	
 	if (mousedown) {
 		ctx.fillStyle = "#6bffb3";
-		ctx.fillRect(scalar + gridX*(c.width-scalar)/loopLength + 1, c.height - scalar*gridY - 1, scalar*horizontalStretch - 2, -scalar + 2);
+		ctx.fillRect(scalar + gridX*(c.width-scalar)/loopLength + 1, c.height - scalar*gridY - 1, horizontalStretch - 2, -scalar + 2);
 	}
+}
+
+function fitCanvas() {
+	c.width = window.innerWidth-40;
+	if (c.width >= 1500) c.width = 1500;
+	
+	horizontalStretch = c.width/loopLength;
+	scalar = 18;
 }
