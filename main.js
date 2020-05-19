@@ -24,11 +24,19 @@ var playing = false;
 //start program loop
 setInterval(function() {
 	main();
-}, 20);
+}, 16);
 
 //main loop
 function main() {
 	if (playing) time++;
+	
+	if (playing && time%8 == 0) {
+		for (let i=0; i<piano.length; i++) {
+			if (melody[Math.floor(time/8)][i]) {
+				playMultiSound(i, "piano");
+			}
+		}
+	}
 	
 	drawCanvas();
 }
@@ -68,7 +76,7 @@ function resetMelody() {
 
 function play() {
 	playing = true;
-	time = 0;
+	time = -3;
 }
 
 function stop() {
