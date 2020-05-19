@@ -50,6 +50,14 @@ button:active {
 	background-color: #5688ba;
 }
 
+.resetButton {
+	background-color: #e65364;
+}
+
+.resetButton:hover {
+	background-color: #b53e4b;
+}
+
 .unselectable {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;

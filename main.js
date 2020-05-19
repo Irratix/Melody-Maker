@@ -3,12 +3,7 @@ var piano = [1,0,1,0,1,1,0,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,0,1,1];
 var loopLength = 64;
 //define melody
 var melody = [];
-for (let i=0; i<loopLength; i++) {
-	melody[i] = [];
-	for (let j=0; j<piano.length; j++) {
-		melody[i][j] = 0;
-	}
-}
+resetMelody();
 //define canvas
 var c = document.getElementById("c");
 var ctx = c.getContext("2d");
@@ -55,6 +50,15 @@ function download(data, filename, type) {
 //load a melody
 function loadMelody() {
 	input.click();
+}
+
+function resetMelody() {
+	for (let i=0; i<loopLength; i++) {
+		melody[i] = [];
+		for (let j=0; j<piano.length; j++) {
+			melody[i][j] = 0;
+		}
+	}
 }
 
 input.onchange = e => { 
