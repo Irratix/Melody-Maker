@@ -89,6 +89,22 @@ function stop() {
 	time = 0;
 }
 
+function transposeUp() {
+	for (let i=0; i<melody.length; i++) {
+		for (let j=melody.length-1; j>=0; j--) {
+			melody[i][j] = melody[i][j-1] ? 1 : 0;
+		}
+	}
+}
+
+function transposeDown() {
+	for (let i=0; i<melody.length; i++) {
+		for (let j=0; j<melody[i].length; j++) {
+			melody[i][j] = melody[i][j+1] ? 1 : 0;
+		}
+	}
+}
+
 input.onchange = e => { 
 	var file = e.target.files[0]; 
 	var reader = new FileReader();
