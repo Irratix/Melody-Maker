@@ -95,5 +95,7 @@ input.onchange = e => {
 	reader.readAsText(file,'UTF-8');
 	reader.onload = readerEvent => {
 		melody = JSON.parse(readerEvent.target.result); // this is the content!
+		loopLength = melody.length;
+		fitCanvas();
 	}
 }
