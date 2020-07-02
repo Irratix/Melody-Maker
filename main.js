@@ -91,7 +91,7 @@ function stop() {
 
 function transposeUp() {
 	for (let i=0; i<melody.length; i++) {
-		for (let j=melody.length-1; j>=0; j--) {
+		for (let j=melody[i].length-1; j>=0; j--) {
 			melody[i][j] = melody[i][j-1] ? 1 : 0;
 		}
 	}
