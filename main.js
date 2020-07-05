@@ -1,17 +1,17 @@
-//define piano structure
+// define piano structure
 var piano = [1,0,1,0,1,1,0,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,0,1,1];
 var loopLength = 64;
-//define melody
+// define melody
 var melody = [];
 resetMelody();
-//define canvas
+// define canvas
 var c = document.getElementById("c");
 var ctx = c.getContext("2d");
 var scalar;
 var horizontalStretch;
 fitCanvas();
 c.height = scalar * piano.length;
-//more init
+// more init
 var input;
 var input = document.createElement('input');
 input.type = 'file';
@@ -21,12 +21,12 @@ var erasing = false;
 var time = 0;
 var playing = false;
 
-//start program loop
+// start program loop
 setInterval(function() {
 	main();
 }, 16);
 
-//main loop
+// main loop
 function main() {
 	if (playing) time++;
 	
@@ -46,7 +46,7 @@ function main() {
 	drawCanvas();
 }
 
-// Function to download data to a file, copied from https://stackoverflow.com/questions/13405129/javascript-create-and-save-file
+// function to download data to a file, copied from https://stackoverflow.com/questions/13405129/javascript-create-and-save-file
 function download(data, filename, type) {
     var file = new Blob([data], {type: type});
     if (window.navigator.msSaveOrOpenBlob) // IE10+
@@ -65,11 +65,12 @@ function download(data, filename, type) {
     }
 }
 
-//load a melody
+// load a melody
 function loadMelody() {
 	input.click();
 }
 
+// clear all notes
 function resetMelody() {
 	for (let i=0; i<loopLength; i++) {
 		melody[i] = [];
@@ -79,16 +80,19 @@ function resetMelody() {
 	}
 }
 
+// play the melody
 function play() {
 	playing = true;
 	time = -3;
 }
 
+// stop playing the melody
 function stop() {
 	playing = false;
 	time = 0;
 }
 
+// transpose the whole melody up by a semitone
 function transposeUp() {
 	for (let i=0; i<melody.length; i++) {
 		for (let j=melody[i].length-1; j>=0; j--) {
@@ -97,6 +101,7 @@ function transposeUp() {
 	}
 }
 
+// transpose the whole melody down by a semitone
 function transposeDown() {
 	for (let i=0; i<melody.length; i++) {
 		for (let j=0; j<melody[i].length; j++) {

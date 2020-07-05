@@ -1,4 +1,4 @@
-//draws frame on canvas
+// draws frame on canvas
 function drawCanvas() {
 	clear();
 	drawGrid();
@@ -7,25 +7,25 @@ function drawCanvas() {
 	drawPlayline();
 }
 
-//clears the canvas
+// clears the canvas
 function clear() {
 	ctx.fillStyle = "white";
 	ctx.fillRect(0,0,c.width,c.height);
 }
 
-//draws the piano on the left side of the piano roll
+// draws the piano on the left side of the piano roll
 function drawPiano() {
 	for (let i=0; i<piano.length; i++) {
-		//draw the key
+		// draw the key
 		ctx.fillStyle = piano[i] ? "#FFF" : "#000";
 		ctx.fillRect(0, c.height - scalar*i, scalar, -scalar);
-		//if black key, take the color through the grid
+		// if black key, take the color through the grid
 		if (!piano[i]) {
 			ctx.globalAlpha = 0.3;
 			ctx.fillRect(scalar, c.height - scalar*i, c.width, -scalar);
 			ctx.globalAlpha = 1;
 		}
-		//draw key separation lines
+		// draw key separation lines
 		ctx.beginPath();
 		ctx.moveTo(0, c.height- scalar*i);
 		ctx.lineTo(scalar, c.height- scalar*i);
@@ -33,14 +33,14 @@ function drawPiano() {
 	}
 }
 
-//draws the grid of the piano roll
+// draws the grid of the piano roll
 function drawGrid() {
-	//draw color sections
+	// draw color sections
 	for (let i=0; i<4; i++) {
 		ctx.fillStyle = i%2 ? "#486d82" : "#6498b5";
 		ctx.fillRect(scalar + i*(c.width-scalar)/4, 0, (c.width-scalar)/4, c.height);
 	}
-	//draw vertical grid
+	// draw vertical grid
 	for (let i=0; i<loopLength; i++) {
 		ctx.lineWidth = i%4 ? .5 : 1.5;
 		ctx.strokeStyle = i%4 ? "#253340" : "#253340";
@@ -49,7 +49,7 @@ function drawGrid() {
 		ctx.lineTo(scalar + i*(c.width-scalar)/loopLength, c.height);
 		ctx.stroke();
 	}
-	//draw horizontal grid
+	// draw horizontal grid
 	for (let i=0; i<piano.length; i++) {
 		ctx.beginPath();
 		ctx.moveTo(scalar, i*c.height/piano.length);
@@ -58,7 +58,7 @@ function drawGrid() {
 	}
 }
 
-//function draws the notes on the grid
+// function draws the notes on the grid
 function drawNotes() {
 	ctx.fillStyle = "#6bffb3";
 	for (let i=0; i<loopLength; i++) {
@@ -75,6 +75,7 @@ function drawNotes() {
 	}
 }
 
+// draws the playline while the melody is playing
 function drawPlayline() {
 	if (!playing) return;
 	
@@ -89,6 +90,7 @@ function drawPlayline() {
 	ctx.stroke();
 }
 
+// resizes the canvas to make it fit on screen
 function fitCanvas() {
 	c.width = window.innerWidth-40;
 	if (c.width >= 1500) c.width = 1500;

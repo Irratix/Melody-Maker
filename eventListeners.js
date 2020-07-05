@@ -1,6 +1,6 @@
-//warning this file is a clusterfuck just don't touch it it works ok
+// warning this file is a clusterfuck just don't touch it it works ok
 
-//mouse listeners
+// mouse listeners
 window.addEventListener("mouseup", function(e) {
 	setCoords(e);
 	
@@ -62,7 +62,7 @@ window.onresize = function() {
 	fitCanvas();
 }
 
-//buttons
+// buttons
 function saveMelody() {
 	let melodyJSON = JSON.stringify(melody);
 	//hash function I copied from https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript

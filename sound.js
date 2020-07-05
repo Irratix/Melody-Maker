@@ -1,3 +1,4 @@
+// number of sound channels
 var channel_max = 100;
 audiochannels = new Array();
 for (a=0; a < channel_max; a++) {
@@ -6,6 +7,7 @@ for (a=0; a < channel_max; a++) {
 	audiochannels[a]['finished'] = -1;
 }
 
+// play a sound
 function playMultiSound(s, instrument) {
 	for (let a = 0; a < audiochannels.length; a++) {
 		thistime = new Date();
